@@ -1,0 +1,6 @@
+--------------------------
+install packages using pip 
+>matplotlib
+$ python -m pip install -U matplotlib 
+>numpy
+python -m pip install -U numpy
