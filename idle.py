@@ -1,5 +1,6 @@
 from unicodedata import name
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import numpy as np
 import os
 #can read in from excel and enumerate through to add to array
@@ -13,17 +14,22 @@ idle_data = [83.29,77.17,72.7,77.25,83.57,82.26,83.45,83.58,86.77,76.44,83.13,83
 bin_width = 0.5
 percentile = 0.95
 
-fig, (ax0,ax1) = plt.subplots(1,2,figsize=(10,5))
-num_bins = len(np.arange(min(idle_data), max(idle_data) + 1, bin_width))
-ax0.hist(idle_data, bins=num_bins)
-#ax1.hist(scaled,bins=num_bins, cumulative=-1) #shows inverse i.e actual usage instead of idle
-ax1.hist(idle_data,bins=num_bins,cumulative =1)
-ax1.hlines((len(idle_data)/1*percentile),min(idle_data),max(idle_data), color="red", linestyles='dashed')
-plt.xlabel('% idle')
-plt.ylabel("count")
-if os.name == 'nt':
-    plt.show()
-elif os.name == 'posix':
-    plt.savefig('idle.png')
 
 
+def plot():
+    fig, (ax0,ax1) = plt.subplots(1,2,figsize=(10,5))
+    num_bins = len(np.arange(min(idle_data), max(idle_data) + 1, bin_width))
+    ax0.hist(idle_data, bins=num_bins)
+    #ax1.hist(scaled,bins=num_bins, cumulative=-1) #shows inverse i.e actual usage instead of idle
+    ax1.hist(idle_data,bins=num_bins,cumulative =1)
+    ax1.hlines((len(idle_data)/1*percentile),min(idle_data),max(idle_data), color="red", linestyles='dashed')
+    plt.xlabel('% idle')
+    plt.ylabel("count")
+    ax1.yaxis.set_major_formatter(mtick.PercentFormatter(xmax=len(idle_data),decimals=None))
+
+    #opens the windows matplotlib util if in windows, or saves the image for linux
+    #may be a wsl compatibilty issue try $ export DISPLAY
+    if os.name == 'nt':
+        plt.show()
+    elif os.name == 'posix':
+        plt.savefig('idle.png')
