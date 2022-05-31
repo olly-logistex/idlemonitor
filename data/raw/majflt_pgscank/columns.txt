@@ -1,0 +1,9 @@
+15:13 31/05/2022
+Columns of interest majflt/s pgscank/s
+
+You should have already done pgscank/s (first bin is 0->200)
+
+Created with
+sadf -dh -- -B | head -n 1 > majflt_pgscank.txt
+for dd in `seq -f %02g 1 31`; do sadf -dh -- -B /var/log/sa/sa$dd | grep P2U-Bardon-LWS02; done >> majflt_pgscank.txt
+

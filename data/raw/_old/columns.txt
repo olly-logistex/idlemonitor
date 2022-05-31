@@ -1,0 +1,7 @@
+15:08 31/05/2022
+
+Created with
+
+for dd in `seq -f %02g 1 31`; do sadf -dh -- -q /var/log/sa/sa$dd | grep P2U-Bardon-LWS02; done > runq_ldavg.txt
+
+Columns of interest: runq-sz  ldavg-1   ldavg-5  ldavg-15

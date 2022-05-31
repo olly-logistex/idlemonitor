@@ -1,0 +1,4 @@
+14:57 31/05/2022
+columns of interest from iowait_idle.txt:
+
+%iowait %idle
