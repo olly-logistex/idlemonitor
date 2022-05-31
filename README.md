@@ -2,7 +2,7 @@
 produce histograms from data using matplotlib
 
 ## installation
-Run hist.py after installing the required packages and python 3.6+
+Run hist.py after installing the required packages in requirements.txt and python 3.6+
 
 ## data
 - change string in "data.csv" to match the filename or rename the data to be used to "data.csv"
