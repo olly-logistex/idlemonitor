@@ -1,4 +1,4 @@
-# hisy.py
+# hist.py
 produce histograms from data using matplotlib
 
 ## installation
