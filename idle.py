@@ -14,8 +14,6 @@ idle_data = [83.29,77.17,72.7,77.25,83.57,82.26,83.45,83.58,86.77,76.44,83.13,83
 bin_width = 0.5
 percentile = 0.95
 
-
-
 def plot():
     fig, (ax0,ax1) = plt.subplots(1,2,figsize=(10,5))
     num_bins = len(np.arange(min(idle_data), max(idle_data) + 1, bin_width))
