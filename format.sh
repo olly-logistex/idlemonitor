@@ -14,6 +14,5 @@ awk -F\; '{print $7}' runq_ldavg.txt | tee -a ldavg-5.txt
 awk -F\; '{print $6}' runq_ldavg.txt | tee -a ldavg-1.txt
 awk -F\; '{print $4}' runq_ldavg.txt | tee -a runq-sz.txt
 awk -F\; '{print $7}' majflt_pgscank.txt | tee -a majflt.txt
-awk -F\; '{print $8}' majflt_pgscank.txt | tee -a pgscank.txt
-## change field to 9 
+awk -F\; '{print $9}' majflt_pgscank.txt | tee -a pgscank.txt
 awk -F\; '{print $6}' memused.txt | tee -a memused.txt
