@@ -7,6 +7,7 @@ import os
 # TODO 
 # - scaling issues on y-axis 
 # - number and size of bins based on current dataset
+# - use string.strip to remove file extension before adding .png 
 
 percentile = 95
 
@@ -17,7 +18,7 @@ def plot(data,num_bins):
     percentile_95 = round(np.percentile(data,percentile),2)
     plt.hist(data,bins=num_bins,label=f"95th: {percentile_95}",density=1,stacked=1) #density - integrates to 1 , stacked sums to 1
     plt.legend()
-    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1.0))
+    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=10))
 
 def get_os(filename,save):
 #opens the windows matplotlib util if in windows, or saves the image for linux
@@ -42,14 +43,14 @@ def directory_loop(bins,show):
             with open(f"./data/{filename}") as datafile:
                 array = np.loadtxt(datafile, delimiter=",")
             datafile = list(array)
-            plot(datafile,1000)
+            plot(datafile,bins)
             plt.title(filename)
             get_os(filename,show) # 1 for show, 0 for save
             #plt.show()
-            #plt.savefig(f"./hists/{filename}.png")
+            plt.savefig(f"./hists/{filename}.png")
             plt.gca().cla()
             plt.clf()
     print("Will be saved with the filename .png")
 
-directory_loop(bins=2000, show=0)
+directory_loop(bins=20, show=0)
 
