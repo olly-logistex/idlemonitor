@@ -1,3 +1,9 @@
+
+# get_sar.sh
+a bash script to gather data usind the sar command with formatting from sadf
+it will save the raw data to /$date/raw
+then format the data to remove headers and newlines to be used by the python script
+
 # hist.py
 produce histograms from data using matplotlib
 

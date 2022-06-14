@@ -18,7 +18,7 @@ def plot(data,num_bins):
     percentile_95 = round(np.percentile(data,percentile),2)
     plt.hist(data,bins=num_bins,label=f"95th: {percentile_95}",density=1,stacked=1) #density - integrates to 1 , stacked sums to 1
     plt.legend()
-    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=10))
+    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=100))
 
 def get_os(filename,save):
 #opens the windows matplotlib util if in windows, or saves the image for linux

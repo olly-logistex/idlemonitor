@@ -1,4 +1,3 @@
-from unicodedata import name
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import numpy as np
